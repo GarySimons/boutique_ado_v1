@@ -48,7 +48,7 @@
                                         <p class="my-0">${{ item.product.price }}</p>
                                     </td>
                                     <td class="p-3 w-25">
-                                        <form class="form update-form" method="POST" action="">
+                                        <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
                                             {% csrf_token %}
                                             <div class="form-group">
                                                 <div class="input-group">
@@ -73,7 +73,7 @@
                                                         </button>
                                                     </div>
                                                     {% if item.product.has_sizes %}
-                                                        <input type="hidden" name="product_size" value="{{ item.item_id }}">
+                                                        <input type="hidden" name="product_size" value="{{ item.size }}">
                                                     {% endif %}
                                                 </div>
                                             </div>
