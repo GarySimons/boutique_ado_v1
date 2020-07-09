@@ -2,7 +2,7 @@ from django import forms
 from .models import UserProfile
 
 
-class UserProfile(forms.ModelForm):
+class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         exclude = ('user',)
@@ -24,7 +24,7 @@ class UserProfile(forms.ModelForm):
 
         self.fields['default_phone_number'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            if field != 'dafault_country':
+            if field != 'default_country':
                 if self.fields[field].required:
                     placeholder = f'{placeholders[field]} *'
                 else:
