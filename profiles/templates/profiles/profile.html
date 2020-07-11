@@ -45,10 +45,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for orders in orders %}
+                            {% for order in orders %}
                                 <tr>
                                     <td>
-                                        <a href="{% url 'order-history' order.order_number %}" 
+                                        <a href="{% url 'order_history' order.order_number %}"
                                         title="{{ order.order_number }}">
                                             {{ order.order_number|truncatechars:6 }}
                                         </a>
@@ -56,7 +56,7 @@
                                     <td>{{ order.date }}</td>
                                     <td>
                                         <ul class="list-unstyled">
-                                            {% for items in order.lineitems.all %}
+                                            {% for item in order.lineitems.all %}
                                                 <li class="small">
                                                     {% if item.product.has_sizes %}
                                                         Size {{ item.product.size|upper }}
@@ -73,7 +73,6 @@
                 </div>
             </div>
         </div>
-        
 {% endblock %}
 
 {% block postloadjs %}
